@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "task2.1": "babel-node src/task2.js"
+    "task2": "babel-node task2.js"
   },
   "author": "",
   "license": "ISC",
