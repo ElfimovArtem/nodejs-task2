@@ -46,6 +46,8 @@ router.get('/users/:id',validator.body(bodyQuerySchema), (request, response) => 
 router.get('/users', validator.query(queryParamSchema), (req, res) => {
   const query = req.query.query;
   const limit = req.query.limit || 10;
+  console.log(query);
+  console.log(limit);
   (!query) ? errorDispatcher(res) : res.send(collection.searchUser(query, limit));
 });
 
@@ -72,5 +74,5 @@ router.put('/user/:id', validator.body(bodyQuerySchema),(req, res)=> {
 
 router.get('/', appStart);
 
-app.use('/', router);
+app.use('/home', router);
 app.listen(port);
