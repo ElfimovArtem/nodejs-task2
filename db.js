@@ -1,40 +1,46 @@
 const uuid = require('uuid/v1');
-const db = [
-  {
+
+const db = {
+  1: {
     login: 'test',
     password: 'test',
     age: 10,
     id: 1,
     isDeleted: false
   },
-  {
+  2: {
     login: 'test2',
     password: 'test2',
     age: 20,
     id: 2,
     isDeleted: true
   }
-];
+};
 
-const getUserById= (req) => db.filter((item) => item.id === req.params.id);
+const getUserById= (req) => db[req.params.id];
 
-const createUser = (req) => {
-  req.body['id'] = uuid();
-  req.body['isDeleted'] = false;
-  db.push(req.body);
+const createUser = (newUser) => {
+  const id = uuid();
+
+  db[id] = {
+    id,
+    ...newUser,
+    isDeleted: false
+  };
+
+  return db[id];
+
 }
 
-const filterById = (id) => db.find((item) => item.id === id);
-
-const searchById = (id) => filterById(id);
+const searchById = (id) => db[id];
 
 const deleteById = (id) => {
-  const item = filterById(id);
+  const item = searchById(id);
   item.isDeleted = true;
 }
 
 const updateUser = (req) => {
-  const item = filterById(req.body.id);
+  const item = searchById(req.body.id);
   return Object.assign(item,req.body);
 }
 
