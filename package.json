@@ -4,8 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "task2": "babel-node task2.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "body-parser": "^1.19.0",
+    "eslint": "^6.7.2",
+    "event-stream": "^4.0.1",
+    "express": "^4.17.1",
+    "express-joi-validation": "^4.0.3",
+    "getstream-node": "^1.5.0",
+    "http-status-codes": "^1.4.0",
+    "mongoose": "^5.7.13",
+    "stream": "0.0.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "nodemon": "^2.0.1"
+  }
 }
